@@ -23,14 +23,23 @@ public class MathUtility {
     // ta sẽ khống chế n đầu vào của hàm 0..20
     // kiểu long: 10^18, 18 con số 0 tối đa
 
+//    public static long getFactorial(int n) {
+//        if (n < 0 || n > 20) 
+//            throw new IllegalArgumentException("Invalid argument. n must be between 0...20");
+//        if (n == 0 || n == 1) 
+//            return 1;
+//        long result = 1;
+//        for (int i = 2; i <= n; i++)
+//            result = result * i;
+//        return result;
+//    }
+    
     public static long getFactorial(int n) {
         if (n < 0 || n > 20) 
             throw new IllegalArgumentException("Invalid argument. n must be between 0...20");
         if (n == 0 || n == 1) 
             return 1;
-        long result = 1;
-        for (int i = 2; i <= n; i++)
-            result = result * i;
-        return result;
+        // mình thừa biết n! = n * (n - 1)!
+        return n * getFactorial(n - 1);
     }
 }
